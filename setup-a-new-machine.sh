@@ -150,17 +150,7 @@ export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
 bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
 
 
-# Type `git open` to open the GitHub page or website for a repository.
-npm install -g git-open
-
-# fancy listing of recent branches
-npm install -g git-recent
-
-# sexy git diffs
-npm install -g diff-so-fancy
-
-# trash as the safe `rm` alternative
-npm install --global trash-cli
+sh install_node_modules.sh
 
 # install better nanorc config
 # https://github.com/scopatz/nanorc
@@ -261,3 +251,9 @@ sh .osx
 
 ###
 ##############################################################################################################
+
+
+# List software updates
+softwareupdate --list
+# Update all listed items, if you wish
+softwareupdate --install -a
