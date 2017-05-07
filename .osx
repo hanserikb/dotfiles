@@ -127,7 +127,7 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 
 # Set a custom wallpaper image. `DefaultDesktop.jpg` is already a symlink, and
-# all wallpapers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
+# all wallp`pers are in `/Library/Desktop Pictures/`. The default is `Wave.jpg`.
 #rm -rf ~/Library/Application Support/Dock/desktoppicture.db
 #sudo rm -rf /System/Library/CoreServices/DefaultDesktop.jpg
 #sudo ln -s /path/to/your/image /System/Library/CoreServices/DefaultDesktop.jpg
@@ -137,7 +137,7 @@ defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
 ###############################################################################
 
 # Always display full control strip (ignoring App Controls)
-defaults write com.apple.touchbar.agent PresentationModeGlobal fullControlStrip
+###defaults write com.apple.touchbar.agent PresentationModeGlobal fullControlStrip
 
 ###############################################################################
 # SSD-specific tweaks                                                         #
@@ -234,7 +234,7 @@ defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 defaults write com.apple.screencapture type -string "png"
 
 # Hide all desktop icons because who need 'em'
-defaults write com.apple.finder CreateDesktop -bool false
+### defaults write com.apple.finder CreateDesktop -bool false
 
 # Disable shadow in screenshots
 defaults write com.apple.screencapture disable-shadow -bool true
