@@ -188,12 +188,8 @@ echo $BASH_VERSION # should be 4.x not the old 3.2.X
 # Later, confirm iterm settings aren't conflicting.
 
 
-# iterm with more margin! http://hackr.it/articles/prettier-gutter-in-iterm-2/
-#   (admittedly not as easy to maintain)
-
-
-# setting up the sublime symlink
-#ln -sf "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl
+# Change iterm theme
+# Load prefs/Cobalt2.itermcolors into Iterm manually
 
 
 ###

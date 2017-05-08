@@ -1,1 +1,2 @@
+# Add homebrew to path
 export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
