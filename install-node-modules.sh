@@ -13,4 +13,8 @@ npm install -g diff-so-fancy
 # trash as the safe `rm` alternative
 npm install --global trash-cli
 
+# Angular CLI
 npm install -g angular-cli
+
+# HTTP server
+npm install -g http-server
