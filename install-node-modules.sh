@@ -18,3 +18,6 @@ npm install -g angular-cli
 
 # HTTP server
 npm install -g http-server
+
+# Eslint
+npm install -g eslint eslint-plugin-unicorn
