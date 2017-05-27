@@ -1,10 +1,11 @@
 module.exports = {
-
+  "plugins": [
+    "unicorn"
+  ],
   "extends": [
     "plugin:unicorn/recommended",
     "eslint:recommended"
   ],
-  
   "env": {
     "browser": true,
     "es6": true,
@@ -13,6 +14,6 @@ module.exports = {
 
   "rules": {
     // 2 == error, 1 == warning, 0 == off
-   
+
   }
 };
