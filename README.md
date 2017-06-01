@@ -1,44 +1,35 @@
-# Paul's dotfiles
-
-* I maintain this repo as *my* dotfiles, but I'm keenly aware people are using it for theirs.
-* You're quite welcome to make suggestions, however I may decline if it's not of personal value to me.
-* If you're starting off consider forking [mathias](https://github.com/mathiasbynens/dotfiles/) or [alrra](https://github.com/alrra/dotfiles/). [paulmillr](https://github.com/paulmillr/dotfiles) and [gf3](https://github.com/gf3/dotfiles) also have great setups
+# Dotfiles
 
 ## Setup
-#### installing & using
+#### Installing & using
 
-* fork this to your own acct
-* clone that repo
-* read and run parts of `setup-a-new-machine.sh`
-* read and run `symlink-setup.sh`
+* Read and run parts of `setup-a-new-machine.sh`
+* Read and run `symlink-setup.sh`
   * git config needs attention, read the notes.
-* use it. yay!
+* Use it. yay!
 
-#### maintenance
+#### Maintenance
 
-* commit/push changes you want.
-* you can also hypothetically cherry-pick commits from me and mathias and our fork ecosystem.
+* Commit/push changes you want.
+* You can also hypothetically cherry-pick commits from me and mathias and our fork ecosystem.
 
-#### shell
+#### Shell
 
 This repo contains config for bash, zsh, and fish. As of March 2016, I'm using fish shell mostly, but fall back to bash once in a while. The bash and fish stuff are both well maintained; zsh, less so. If you're using fish you'll want to do a `git submodule update --init`.
 
 
-## my favorite parts.
+## My favorite parts.
 
 ### [`.aliases`](https://github.com/paulirish/dotfiles/blob/master/.aliases) and [`.functions`](https://github.com/paulirish/dotfiles/blob/master/.functions)
-
-So many goodies.
 
 ### The "readline config" (`.inputrc`)
 Basically it makes typing into the prompt amazing.
 
-* tab like crazy for autocompletion that doesnt suck. tab all the things. srsly.
-* no more <tab><tab> that says "Display all 1745 possibilities? (y or n)" YAY
-* type `cat <uparrow>` to see your previous `cat`s and use them.
-* case insensitivity.
-* tab all the livelong day.
-
+* Tab like crazy for autocompletion that doesnt suck. tab all the things. srsly.
+* No more <tab><tab> that says "Display all 1745 possibilities? (y or n)" YAY
+* Type `cat <uparrow>` to see your previous `cat`s and use them.
+* Case insensitivity.
+* Tab all the livelong day.
 
 
 ### Moving around in folders (`z`, `...`, `cdf`)
@@ -55,13 +46,13 @@ Lastly, I use `open .` to open Finder from this path. (That's just available nor
 
 
 
-## overview of files
+## Overview of files
 
 ####  Automatic config
 * `.vimrc`, `.vim` - vim config, obv.
 * `.inputrc` - behavior of the actual prompt line
 
-#### shell environment
+#### Shell environment
 * `.aliases`
 * `.bash_profile`
 * `.bash_prompt`
@@ -70,7 +61,7 @@ Lastly, I use `open .` to open Finder from this path. (That's just available nor
 * `.functions`
 * `.extra` - not included, explained below
 
-#### manual run
+#### Manual run
 * `setup-a-new-machine.sh` - random apps i need installed
 * `symlink-setup.sh`  - sets up symlinks for all dotfiles and vim config.
 * `.osx` - run on a fresh osx setup
@@ -103,15 +94,6 @@ PATH=$PATH:~/code/git-friendly
 # ...
 
 export PATH
-```
-
-
-### Sensible OS X defaults
-
-Mathias's repo is the canonical for this, but you should probably run his or mine after reviewing it.
-
-```bash
-./.osx
 ```
 
 ### `~/bin`
