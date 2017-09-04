@@ -31,6 +31,7 @@ brew cask install imageoptim
 
 # browsers
 brew cask install google-chrome-canary
+brew cask install google-chrome
 # brew cask install firefoxnightly
 # brew cask install webkit-nightly
 # brew cask install chromium
