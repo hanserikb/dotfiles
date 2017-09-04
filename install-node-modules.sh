@@ -11,7 +11,7 @@ npm install -g git-recent
 npm install -g diff-so-fancy
 
 # trash as the safe `rm` alternative
-npm install --global trash-cli
+npm install --g trash-cli
 
 # Angular CLI
 npm install -g angular-cli
@@ -21,3 +21,6 @@ npm install -g http-server
 
 # Eslint
 npm install -g eslint eslint-plugin-unicorn
+
+# Sass compiler
+npm install -g node-sass
