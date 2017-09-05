@@ -24,3 +24,6 @@ npm install -g eslint eslint-plugin-unicorn
 
 # Sass compiler
 npm install -g node-sass
+
+# Browsersync for setting up a dev server for websites fast
+npm install -g browser-sync
