@@ -1,38 +1,49 @@
 #!/bin/bash
 
-
 # Type `git open` to open the GitHub page or website for a repository.
-npm install -g git-open
+echo "Installing git-open"
+npm install -g -q git-open
 
 # fancy listing of recent branches
-npm install -g git-recent
+echo "Installing git-recent"
+npm install -g -q git-recent
 
 # sexy git diffs
-npm install -g diff-so-fancy
+echo "Installing diff-so-fancy"
+npm install -g -q diff-so-fancy
 
 # trash as the safe `rm` alternative
-npm install --g trash-cli
+echo "Installing trash-cli"
+npm install --g -q trash-cli
 
 # Angular CLI
-npm install -g angular-cli
+echo "Installing angular-cli"
+npm install -g -q angular-cli
 
 # HTTP server
-npm install -g http-server
+echo "Installing http-server"
+npm install -g -q http-server
 
 # Eslint
-npm install -g eslint eslint-plugin-unicorn
+echo "Installing eslint-plugin-unicorn"
+npm install -g -q eslint eslint-plugin-unicorn
 
 # Sass compiler
-npm install -g node-sass
+echo "Installing node-sass"
+npm install -g -q node-sass
 
 # Browsersync for setting up a dev server for websites fast
-npm install -g browser-sync
+echo "Installing browser-sync"
+npm install -g -q browser-sync
 
 # Gulp
-npm install -g gulp-cli
+echo "Installing gulp"
+npm install -g -q gulp-cli
 
 # Stylus
-npm install -g stylus
+echo "Installing stylus"
+npm install -g -q stylus
 
 # Webpack
-npm install -g webpack
+echo "Installing webpack"
+npm install -g -q webpack
