@@ -32,4 +32,7 @@ npm install -g browser-sync
 npm install -g gulp-cli
 
 # Stylus
-npm install stylus -g
+npm install -g stylus
+
+# Webpack
+npm install -g webpack
