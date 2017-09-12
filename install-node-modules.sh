@@ -30,3 +30,6 @@ npm install -g browser-sync
 
 # Gulp
 npm install -g gulp-cli
+
+# Stylus
+npm install stylus -g
