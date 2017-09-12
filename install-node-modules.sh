@@ -27,3 +27,6 @@ npm install -g node-sass
 
 # Browsersync for setting up a dev server for websites fast
 npm install -g browser-sync
+
+# Gulp
+npm install -g gulp-cli
