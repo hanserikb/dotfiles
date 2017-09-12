@@ -14,7 +14,7 @@ npm install -g -q diff-so-fancy
 
 # trash as the safe `rm` alternative
 echo "Installing trash-cli"
-npm install --g -q trash-cli
+npm install -g -q trash-cli
 
 # Angular CLI
 echo "Installing angular-cli"
