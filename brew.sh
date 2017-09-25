@@ -22,9 +22,7 @@ brew install gnu-sed --with-default-names
 # Note: don’t forget to add `/usr/local/bin/bash` to `/etc/shells` before running `chsh`.
 brew install bash
 
-brew install bash-completion
-
-brew install homebrew/completions/brew-cask-completion
+brew install bash-completion2
 
 # Install wget with IRI support
 brew install wget --with-iri
