@@ -1,48 +1,65 @@
 # Dotfiles
 
+Forked from paulirish, modified to suit my needs.
 ## Setup
 #### Installing & using
-
 * Read and run parts of `setup-a-new-machine.sh`
 * Read and run `symlink-setup.sh`
-  * git config needs attention, read the notes.
-* Use it. yay!
 
-#### Maintenance
-
-* Commit/push changes you want.
-* You can also hypothetically cherry-pick commits from me and mathias and our fork ecosystem.
 
 #### Shell
+This repo contains config for bash, zsh, and fish.
 
-This repo contains config for bash, zsh, and fish. As of March 2016, I'm using fish shell mostly, but fall back to bash once in a while. The bash and fish stuff are both well maintained; zsh, less so. If you're using fish you'll want to do a `git submodule update --init`.
+## Files
+
+### [`.aliases`](https://github.com/hanserikb/dotfilez/blob/master/.aliases)
+Sets up a bunch of aliases. Examples:
+* ***..*** - cd ..
+* ***...*** - cd ../..
+* ***....*** - cd ../../..
+* ***.....*** - cd ../../../..
 
 
-## My favorite parts.
+Command | Alias for..
+--- | ---
+.. | ```cd ..```|
+... | ```cd ../..```|
+.... | ```cd ../../..```|
+..... | ```cd ../../../..```|
+g | ```git```|
+freewifi | Spoofs mac address for free public wifi |
+serve | Starts a simple web server |
+master | ```git checkout master``` |
 
-### [`.aliases`](https://github.com/paulirish/dotfiles/blob/master/.aliases) and [`.functions`](https://github.com/paulirish/dotfiles/blob/master/.functions)
+[`.functions`](https://github.com/hanserikb/dotfilez/blob/master/.functions)
+Sets up some useful functions. Examples:
+
+Command | Function for..
+--- | ---
+md | Create a new directory and enter it |
+cp_p | Copy with progress |
+whois | Get whois data |
+localip | Get local ip addresses |
 
 ### The "readline config" (`.inputrc`)
 Basically it makes typing into the prompt amazing.
 
-* Tab like crazy for autocompletion that doesnt suck. tab all the things. srsly.
+* Tab like crazy for autocompletion that doesnt suck. tab all the things.
 * No more <tab><tab> that says "Display all 1745 possibilities? (y or n)" YAY
-* Type `cat <uparrow>` to see your previous `cat`s and use them.
+* Type `whatevercommans <uparrow>` to see your previous `whatevercommans`s and use them.
 * Case insensitivity.
-* Tab all the livelong day.
 
 
-### Moving around in folders (`z`, `...`, `cdf`)
-`z` helps you jump around to whatever folder. It uses actual real magic to determine where you should jump to. Seperately there's some `...` aliases to shorten `cd ../..` and `..`, `....` etc. Then, if you have a folder open in Finder, `cdf` will bring you to it.
+### Moving around in folders (`z`, `cdf`)
+`z` helps you jump around to whatever folder. It uses actual real magic to determine where you should jump to. Then, if you have a folder open in Finder, `cdf` will bring you to it.
 ```sh
 z dotfiles
 z blog
-....      # drop back equivalent to cd ../../..
 z public
 cdf       # cd to whatever's up in Finder
 ```
 `z` learns only once its installed so you'll have to cd around for a bit to get it taught.
-Lastly, I use `open .` to open Finder from this path. (That's just available normally.)
+Lastly, I use `open .` to open Finder from this path.
 
 
 
@@ -95,11 +112,3 @@ PATH=$PATH:~/code/git-friendly
 
 export PATH
 ```
-
-### `~/bin`
-
-One-off binaries that aren't via an npm global or homebrew. [git open](https://github.com/paulirish/git-open), [wifi-password](https://github.com/rauchg/wifi-password), [coloredlogcat](https://developer.sinnerschrader-mobile.com/colored-logcat-reloaded/507/), [git-overwritten](https://github.com/mislav/dotfiles/blob/master/bin/git-overwritten), and `subl` for Sublime Text.
-
-### Syntax highlighting for these files
-
-If you edit this stuff, install [Dotfiles Syntax Highlighting](https://github.com/mattbanks/dotfiles-syntax-highlighting-st2) via [Package Control](http://wbond.net/sublime_packages/package_control)

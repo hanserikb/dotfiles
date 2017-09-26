@@ -1,25 +1,21 @@
 #!/bin/bash
 
-# this symlinks all the dotfiles (and .vim/) to ~/
+# This script symlinks all the dotfiles to ~/
 # it also symlinks ~/bin for easy updating
 
 # this is safe to run multiple times and will prompt you about anything unclear
 
 
 # this is a messy edit of alrra's nice work here:
-#   https://raw.githubusercontent.com/alrra/dotfiles/master/os/create_symbolic_links.sh
+#   https://github.com/alrra/dotfiles/blob/master/src/os/utils.sh
 #   it should and needs to be improved to be less of a hack.
 
 
-
-# jump down to line ~140 for the start.
-
+# Jump down to line ~140 for the start.
 
 
-#
-# utils !!!
-#
 
+### Utility methods
 
 answer_is_yes() {
     [[ "$REPLY" =~ ^[Yy]$ ]] \
@@ -41,7 +37,7 @@ ask_for_confirmation() {
 ask_for_sudo() {
 
     # Ask for the administrator password upfront
-    sudo -v
+    sudo -v &> /dev/null
 
     # Update existing `sudo` time stamp until this script has finished
     # https://gist.github.com/cowboy/3118588
@@ -138,7 +134,7 @@ print_success() {
 
 
 #
-# actual symlink stuff
+# Actual symlink stuff
 #
 
 
