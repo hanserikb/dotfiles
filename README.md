@@ -14,11 +14,6 @@ This repo contains config for bash, zsh, and fish.
 
 ### [`.aliases`](https://github.com/hanserikb/dotfilez/blob/master/.aliases)
 Sets up a bunch of aliases. Examples:
-* ***..*** - cd ..
-* ***...*** - cd ../..
-* ***....*** - cd ../../..
-* ***.....*** - cd ../../../..
-
 
 Command | Alias for..
 --- | ---
