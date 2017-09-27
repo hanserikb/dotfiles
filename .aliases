@@ -44,12 +44,6 @@ alias c='pygmentize -O style=monokai -f console256 -g'
 
 ###
 # GIT STUFF
-
-function clone() {
-    git clone --depth=1 $1
-    cd $(basename ${1%.*})
-    yarn install
-}
 alias push="git push"
 
 # Undo a `git push`

@@ -1,12 +1,12 @@
-# copy paste this file in bit by bit.
-# don't run it.
+# Copy paste this file in bit by bit.
+# Don't run it.
   echo "do not run this script in one go. hit ctrl-c NOW"
   read -n 1
 
 
-##############################################################################################################
-###  backup old machine's key items
-
+#############
+#############
+# If we're installing on a fresh machine, all copying of files can be skipped
 mkdir -p ~/migration/home/
 mkdir -p ~/migration/Library/"Application Support"/
 mkdir -p ~/migration/Library/Preferences/
@@ -15,7 +15,7 @@ mkdir -p ~/migration/rootLibrary/Preferences/SystemConfiguration/
 
 cd ~/migration
 
-# what is worth reinstalling?
+# What is worth reinstalling?
 brew leaves              > brew-list.txt    # all top-level brew installs
 brew cask list           > cask-list.txt
 npm list -g --depth=0    > npm-g-list.txt
@@ -24,7 +24,7 @@ npm list -g --depth=0    > npm-g-list.txt
 # then compare brew-list to what's in `brew.sh`
 #   comm <(sort brew-list.txt) <(sort brew.sh-cleaned-up)
 
-# backup some dotfiles likely not under source control
+# Backup some dotfiles likely not under source control
 cp -Rp \
     ~/.bash_history \
     ~/.extra ~/.extra.fish \
@@ -37,53 +37,31 @@ cp -Rp \
     ~/.z   \
         ~/migration/home
 
+# Backup documents
 cp -Rp ~/Documents ~/migration
-
-cp -Rp /Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist ~/migration/rootLibrary/Preferences/SystemConfiguration/ # wifi
-
-#cp -Rp ~/Library/Preferences/net.limechat.LimeChat.plist ~/migration/Library/Preferences/
-cp -Rp ~/Library/Preferences/com.tinyspeck.slackmacgap.plist ~/migration/Library/Preferences/
-
-cp -Rp ~/Library/Services ~/migration/Library/ # automator stuff
-cp -Rp ~/Library/Fonts ~/migration/Library/ # all those fonts you've installed
+# Backup Wifi settings
+cp -Rp /Library/Preferences/SystemConfiguration/com.apple.airport.preferences.plist ~/migration/rootLibrary/Preferences/SystemConfiguration/
+# Backup automator stuff
+cp -Rp ~/Library/Services ~/migration/Library/ 
+# Backup fonts
+cp -Rp ~/Library/Fonts ~/migration/Library/
 
 # editor settings & plugins
-#cp -Rp ~/Library/Application\ Support/Sublime\ Text\ * ~/migration/Library/"Application Support"
-cp -Rp ~/Library/Application\ Support/Code\ -\ Insider* ~/migration/Library/"Application Support"
+cp -Rp ~/Library/Application\ Support/Code/ ~/migration/Library/"Application Support"
 
-# also consider...
-# random git branches you never pushed anywhere?
-# git untracked files (or local gitignored stuff). stuff you never added, but probably want..
-
-
-# OneTab history pages, because chrome tabs are valuable.
-
-# usage logs you've been keeping.
+# Backup pictures, logs, untracked git repos, other important stuff
 
 # iTerm settings.
-  # Prefs, General, Use settings from Folder
+# Prefs, General, Use settings from Folder
 
-# Finder settings and TotalFinder settings
-#   Not sure how to do this yet. Really want to.
-
-# Timestats chrome extension stats
-#   chrome-extension://ejifodhjoeeenihgfpjijjmpomaphmah/options.html#_options
-# 	gotta export into JSON through devtools:
-#     copy(JSON.stringify(localStorage))
-#     pbpaste > timestats-canary.json.txt
-
-# software licenses.
-#   sublimetext's is in its Application Support folder
-
-# maybe ~/Pictures and such
-cp -Rp ~/Pictures ~/migration
-
-### end of old machine backup
-##############################################################################################################
+### End of backup
+#############
+#############
 
 
 
-##############################################################################################################
+#############
+#############
 ### XCode Command Line Tools
 #      thx https://github.com/alrra/dotfiles/blob/ff123ca9b9b/os/os_x/installs/install_xcode.sh
 
@@ -120,46 +98,53 @@ if ! xcode-select --print-path &> /dev/null; then
 
 fi
 ###
-##############################################################################################################
+#############
+#############
 
 
 
-##############################################################################################################
-### homebrew!
+#############
+#############
+### Install Homebrew, package manager!
 
-# (if your machine has /usr/local locked down (like google's), you can do this to place everything in ~/.homebrew
+# if your machine has /usr/local locked down, you can do this to place everything in ~/.homebrew
 mkdir $HOME/.homebrew && curl -L https://github.com/mxcl/homebrew/tarball/master | tar xz --strip 1 -C $HOME/.homebrew
 export PATH=$HOME/.homebrew/bin:$HOME/.homebrew/sbin:$PATH
 
 # Install homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”3
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-# install all the things
+# Install all packages applications
 ./brew.sh
 ./brew-cask.sh
 
 ### end of homebrew
-##############################################################################################################
+#############
+#############
 
 
 
-
-##############################################################################################################
-### install of common things
-###
+#############
+#############
+### Install of common things
 
 # github.com/jamiew/git-friendly
 # the `push` command which copies the github compare URL to my clipboard is heaven
-bash < <( curl https://raw.github.com/jamiew/git-friendly/master/install.sh)
+bash < <( curl https://raw.githubusercontent.com/jamiew/git-friendly/master/install.sh)
+# pull	Stash any local changes, pull from remote using rebase, updates submodules, pop your stash, then run bundle install, npm install, yarn install, bower install or composer install if necessary.
+# push	Push your changes to the remote + copy a sexy diff URL like http://github.com/jamiew/git-friendly/compare/e96033…5daed4 to your clipboard (works on Mac and Linux)
+# branch [name]	Switch branches or create new local branch if it doesn’t exist. Intelligently sets up remote branch tracking so you can just type ‘git pull’ and not always ‘git pull origin newbranch’. If no argument specified will list all local and remote branches.
+# merge [name]	Merge the specified branch into the current branch. Rebases first if the branch is local-only
 
-
+# Install global node modules
 sh install_node_modules.sh
 
 # install better nanorc config
 # https://github.com/scopatz/nanorc
 # curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
 
-# github.com/rupa/z   - oh how i love you
+# Z - quickly jump around files
+# github.com/rupa/z
 git clone https://github.com/rupa/z.git ~/code/z
 # consider reusing your current .z file if possible. it's painful to rebuild :)
 # z is hooked up in .bash_profile
@@ -183,6 +168,7 @@ sudo easy_install Pygments
 
 
 # change to bash 4 (installed by homebrew)
+## Theese instruction might be changed. Check at fresh install
 BASHPATH=$(brew --prefix)/bin/bash
 #sudo echo $BASHPATH >> /etc/shells
 sudo bash -c 'echo $(brew --prefix)/bin/bash >> /etc/shells'
@@ -195,30 +181,16 @@ echo $BASH_VERSION # should be 4.x not the old 3.2.X
 # Load prefs/Cobalt2.itermcolors into Iterm manually
 
 
-###
-##############################################################################################################
+#############
+#############
 
-
-
-# improve perf of git inside of chromium checkout
-# https://chromium.googlesource.com/chromium/src/+/master/docs/mac_build_instructions.md
-
-# default is (257*1024)
-sudo sysctl kern.maxvnodes=$((512*1024))
-
-echo kern.maxvnodes=$((512*1024)) | sudo tee -a /etc/sysctl.conf
-
-# speed up git status (to run only in chromium repo)
-git config status.showuntrackedfiles no
-git update-index --untracked-cache
-
-# also this unrelated thing
+# Global git config
 git config user.email "hanserikb@gmail.com"
 
 
-##############################################################################################################
-### remaining configuration
-###
+#############
+#############
+### Remaining configuration
 
 # go read mathias, paulmillr, gf3, alraa's dotfiles to see what's worth stealing.
 
@@ -226,33 +198,41 @@ git config user.email "hanserikb@gmail.com"
 #   github.com/sorin-ionescu/prezto/blob/master/modules/utility/init.zsh
 
 # set up osx defaults
+# Doesn't work well in OS X Sierra unfortunately 
 #   maybe something else in here https://github.com/hjuutilainen/dotfiles/blob/master/bin/osx-user-defaults.sh
 sh .osx
 
 # setup and run Rescuetime!
 
-###
-##############################################################################################################
+#############
+#############
 
 
 
-##############################################################################################################
-### symlinks to link dotfiles into ~/
-###
+#############
+#############
+### Symlinks to link dotfiles into ~/
 
-#   move git credentials into ~/.gitconfig.local    	http://stackoverflow.com/a/13615531/89484
-#   now .gitconfig can be shared across all machines and only the .local changes
 
-# symlink it up!
+# Create .gitignore.local file and enter git credentials, like this (it can also contain tokens n stuff):
+# [user]
+# name = "*yourname*"
+# email = "*youremail*"
+
+# Now .gitconfig can be shared across all machines and only the .local changes
+
+# Symlink all dotfiles into ~
 ./symlink-setup.sh
 
-# add manual symlink for .ssh/config and probably .config/fish
+# add manual symlink for .ssh/config
 
 ###
-##############################################################################################################
+#############
+#############
 
 
 # List software updates
 softwareupdate --list
+
 # Update all listed items, if you wish
 softwareupdate --install -a
