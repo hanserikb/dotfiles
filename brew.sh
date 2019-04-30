@@ -24,12 +24,12 @@ brew install bash
 brew install bash-completion2
 brew install homebrew/completions/brew-cask-completion
 
-# Install wget with IRI support
-brew install wget --with-iri
+# Install wget
+brew install wget
 
 # Install more recent versions of some OS X tools
-brew install homebrew/grep
-brew install homebrew/openssh
+brew install grep
+brew install openssh
 
 # z hopping around folders
 brew install z
